@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.SolutionMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Solution">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.SOLUTION-->
+    <id column="solution_id" jdbcType="INTEGER" property="solutionId" />
+    <result column="solution_content" jdbcType="VARCHAR" property="solutionContent" />
+    <result column="anministrator_id" jdbcType="INTEGER" property="anministratorId" />
+    <result column="solution_title" jdbcType="VARCHAR" property="solutionTitle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    solution_id, solution_content, anministrator_id, solution_title
+  </sql>
+  <select id="getProgrammeManagementList" resultType="xyz.javaee.psychology_questionnaire.entity.Solution">
+    SELECT
+      solution_id,
+      solution_content,
+      anministrator_id,
+      solution_title
+    FROM
+      SOLUTION ${ew.customSqlsegment}
+  </select>
+
+</mapper>

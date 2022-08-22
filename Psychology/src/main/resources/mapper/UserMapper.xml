@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.UserMapper">
+	<resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.User">
+		<!--@mbg.generated-->
+		<!--@Table PsychologyQuestionnaire.`USER`-->
+		<id column="userId" jdbcType="INTEGER" property="userid"/>
+		<result column="admin" jdbcType="INTEGER" property="admin"/>
+		<result column="name" jdbcType="CHAR" property="name"/>
+		<result column="telephone" jdbcType="CHAR" property="telephone"/>
+		<result column="age" jdbcType="INTEGER" property="age"/>
+		<result column="password" jdbcType="CHAR" property="password"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!--@mbg.generated-->
+		userId, `admin`, `name`, telephone, age, `password`
+	</sql>
+
+	<insert id="register" keyProperty="userid" useGeneratedKeys="true">
+		insert into `USER` (name, telephone, age, password)
+		VALUES (#{name,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+		        #{password,jdbcType=VARCHAR})
+	</insert>
+	<select id="findUserPage" resultType="xyz.javaee.psychology_questionnaire.entity.DTO.UserList">
+		SELECT u.userId,
+		       u.name,
+		       u.telephone,
+		       u.age,
+		       GROUP_CONCAT(m.mentality_type) as mentalityTypeStr
+		FROM `user` AS u LEFT JOIN mentality AS m ON m.mentality_id = u.mentalityId
+				${ew.customSqlSegment}
+		GROUP BY u.userId
+		ORDER BY u.userId
+	</select>
+	<select id="findUserPageDESC" resultType="xyz.javaee.psychology_questionnaire.entity.DTO.UserList">
+		SELECT u.userId,
+			   u.name,
+			   u.telephone,
+			   u.age,
+			   GROUP_CONCAT(m.mentality_type) as mentalityTypeStr
+		FROM `user` AS u LEFT JOIN mentality AS m ON m.mentality_id = u.mentalityId
+			${ew.customSqlSegment}
+		GROUP BY u.userId
+		ORDER BY u.userId DESC
+	</select>
+</mapper>

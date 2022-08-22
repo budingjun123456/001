@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.QuestionsMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Questions">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.QUESTIONS-->
+    <id column="question_id" jdbcType="INTEGER" property="questionId" />
+    <result column="questionnaire_id" jdbcType="INTEGER" property="questionnaireId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="question_order" jdbcType="INTEGER" property="questionOrder" />
+    <result column="question_type" jdbcType="BOOLEAN" property="questionType" />
+    <result column="section_content" jdbcType="VARCHAR" property="sectionContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    question_id, questionnaire_id, content, question_order, question_type, section_content
+  </sql>
+</mapper>

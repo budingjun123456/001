@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.ReplyAndSubmitMapper">
+    <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.DTO.ReplyAndSubmit">
+        <!--@mbg.generated-->
+        <!--@Table PsychologyQuestionnaire.SUBMIT-->
+        <result column="replyId" jdbcType="INTEGER" property="replyId" />
+        <result column="replyContent" jdbcType="VARCHAR" property="replyContent" />
+        <result column="replyTime" jdbcType="TIMESTAMP" property="replyTime" />
+        <result column="administratorId" jdbcType="INTEGER" property="administratorId" />
+        <result column="userId" jdbcType="INTEGER" property="userId" />
+        <result column="submitId" jdbcType="INTEGER" property="submitId" />
+        <result column="submitTime" jdbcType="TIMESTAMP" property="submitTime" />
+        <result column="submitContent" jdbcType="INTEGER" property="submitContent" />
+    </resultMap>
+</mapper>

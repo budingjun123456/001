@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.GroupsMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Groups">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.QUESTIONS-->
+    <id column="groupId" jdbcType="INTEGER" property="groupId" />
+    <result column="groupName" jdbcType="INTEGER" property="groupName" />
+    <result column="adminId" jdbcType="INTEGER" property="adminId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    groupId, groupName, adminId
+  </sql>
+  <select id="getList" resultType="xyz.javaee.psychology_questionnaire.entity.Groups">
+    SELECT `groupId`,`groupName`,`adminId`
+    FROM `groups` ${ew.customSqlsegment}
+  </select>
+</mapper>

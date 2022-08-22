@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.AnswerMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Answer">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.ANSWER-->
+    <result column="answer_id" jdbcType="INTEGER" property="answerId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="answer_str" jdbcType="VARCHAR" property="answerStr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    answer_id, user_id, answer_str
+  </sql>
+</mapper>

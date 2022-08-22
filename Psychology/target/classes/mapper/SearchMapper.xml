@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.SearchMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Search">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.`SEARCH`-->
+    <id column="search_id" jdbcType="INTEGER" property="searchId" />
+    <result column="key_word" jdbcType="VARCHAR" property="keyWord" />
+    <result column="solutionId_str" jdbcType="VARCHAR" property="solutionidStr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    search_id, key_word, solutionId_str
+  </sql>
+</mapper>

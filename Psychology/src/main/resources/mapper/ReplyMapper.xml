@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.ReplyMapper">
+	<resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Reply">
+		<!--@mbg.generated-->
+		<!--@Table PsychologyQuestionnaire.REPLY-->
+		<id column="reply_id" jdbcType="INTEGER" property="replyId"/>
+		<result column="reply_content" jdbcType="VARCHAR" property="replyContent"/>
+		<result column="reply_time" jdbcType="TIMESTAMP" property="replyTime"/>
+		<result column="administrator_id" jdbcType="INTEGER" property="administratorId"/>
+		<result column="submitId" jdbcType="INTEGER" property="submitid"/>
+		<result column="is_back" jdbcType="BIT" property="isBack"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!--@mbg.generated-->
+		reply_id, reply_content, reply_time, administrator_id, submitId, is_back
+	</sql>
+	<select id="getNotBackReply" resultMap="BaseResultMap">
+		SELECT r.*
+		FROM REPLY AS r
+				     LEFT JOIN SUBMIT AS s ON s.submitId = r.submitId
+		WHERE r.is_back = 0
+		  AND s.userId = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="getUserAllReply" resultMap="BaseResultMap">
+		SELECT reply_id,reply_content,reply_time,administrator_id,user_id
+		FROM reply
+		WHERE user_id=#{id,jdbcType=INTEGER}
+	</select>
+	<insert id="addReply" parameterType="xyz.javaee.psychology_questionnaire.entity.Reply">
+		insert into
+			reply
+			(reply_content,reply_time,administrator_id,user_id,is_back)
+		values
+			(#{replyContent},#{replyTime},#{administratorId},#{userId},#{isBack})
+	</insert>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.QABankMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.QABank">
+    <id column="qaid" jdbcType="INTEGER" property="qaid" />
+    <result column="q" jdbcType="VARCHAR" property="q" />
+    <result column="a" jdbcType="VARCHAR" property="a" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    qaid, q, a
+  </sql>
+  <select id="getList" resultType="xyz.javaee.psychology_questionnaire.entity.QABank">
+    SELECT `qaid`,`q`,`a`
+    FROM `qabank` ${ew.customSqlsegment}
+  </select>
+</mapper>

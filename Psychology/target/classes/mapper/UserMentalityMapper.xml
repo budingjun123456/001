@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.UserMentalityMapper">
+	<resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.UserMentality">
+		<!--@mbg.generated-->
+		<!--@Table PsychologyQuestionnaire.User_Mentality-->
+		<id column="userId" jdbcType="INTEGER" property="userid"/>
+		<id column="mentalityId" jdbcType="INTEGER" property="mentalityid"/>
+		<result column="get_time" jdbcType="TIMESTAMP" property="getTime"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!--@mbg.generated-->
+		userId, mentalityId, get_time
+	</sql>
+	<select id="getMentalityAndSolutionById"
+	        resultType="xyz.javaee.psychology_questionnaire.entity.DTO.MentalityAndSolution">
+		select um.get_time, m.mentality_type, m.mentality_id,s.solution_content, s.solution_title
+		from User_Mentality as um
+				     left join MENTALITY as m on um.mentalityId = m.mentality_id
+				     left join SOLUTION as s on s.solution_id = m.self_solution
+		where um.userId = #{userId}
+	</select>
+</mapper>

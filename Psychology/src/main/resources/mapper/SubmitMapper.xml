@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.SubmitMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.Submit">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.SUBMIT-->
+    <id column="submitId" jdbcType="INTEGER" property="submitId" />
+    <result column="submitTime" jdbcType="TIMESTAMP" property="submitTime" />
+    <result column="submitContent" jdbcType="VARCHAR" property="submitContent" />
+    <result column="userId" jdbcType="INTEGER" property="userId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <select id="getConsultList"
+          resultType="xyz.javaee.psychology_questionnaire.entity.Submit">
+    select submitId, submitTime, submitContent,`user`.`name`, type,`user`.userId
+    from submit
+           LEFT JOIN `user`
+                     ON submit.userId=`user`.userId
+  </select>
+    <select id="getAll" resultMap="BaseResultMap">
+        SELECT submitTime,submitContent FROM submit WHERE type=1 ORDER BY submitTime DESC
+    </select>
+
+    <select id="getUserAllSubmit" resultMap="BaseResultMap">
+        SELECT submitId,submitTime,submitContent
+        FROM submit
+        WHERE userId=#{id,jdbcType=INTEGER}
+    </select>
+    <!-- 删 -->
+    <delete id="delete" parameterType="xyz.javaee.psychology_questionnaire.entity.Submit">
+        delete from submit
+        where
+            submitId = #{id}
+    </delete>
+</mapper>

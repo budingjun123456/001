@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.javaee.psychology_questionnaire.dao.QuestionsBankMapper">
+  <resultMap id="BaseResultMap" type="xyz.javaee.psychology_questionnaire.entity.QuestionsBank">
+    <!--@mbg.generated-->
+    <!--@Table PsychologyQuestionnaire.SOLUTION-->
+    <id column="question_id" jdbcType="INTEGER" property="questionId" />
+    <result column="question_type_id" jdbcType="INTEGER" property="questionTypeId" />
+    <result column="question_content" jdbcType="VARCHAR" property="questionContent" />
+    <result column="section_type" jdbcType="INTEGER" property="administratorId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    question_id, question_type_id, question_content, section_type
+  </sql>
+  <select id="getList" resultType="xyz.javaee.psychology_questionnaire.entity.QuestionsBank">
+    SELECT
+      question_id,
+      question_type_id,
+      question_content,
+      section_type
+    FROM
+      questionsbank ${ew.customSqlsegment}
+  </select>
+
+  <select id="getQuestions" resultType="xyz.javaee.psychology_questionnaire.entity.QuestionsBank">
+    SELECT
+      question_id,
+      question_type_id,
+      question_content,
+      section_type
+    FROM
+      questionsbank ${ew.customSqlsegment}
+  </select>
+</mapper>
