@@ -1,0 +1,57 @@
+git clone
+git --version 
+
+
+提交：
+
+git init  提交到工作区
+git add -A   提交到暂存区     
+（VS：点加号 U->A）
+git commit -m "first commit"   提交到仓库
+(VS: 在源代码处 输入备注就可以了)
+	如果未注册，则会提醒输入邮箱 和用户名 ，再提交就可以了
+
+	ps:将.git 文件夹删除掉，就提交信息都没了
+
+
+git log --stat 查看提交历史
+(VS: 点击commit 就有first commit)
+
+
+维护：
+
+VS：在文件里更改 ctrl+s 保存   ->  自动提示更改
+       再输入对应备注，就可以更改了
+
+git check README.md  未提交回滚
+（VS：返回箭头）
+git reset HEAD^1(默认也是1)   已经提交回滚
+（再加上一句命令）
+（VS：commit里面回滚）
+	ps: VS file history 里面可以复制原来的提交
+
+
+
+分支：
+git branch 列举所有分支
+git branch -D <..>  删除特定分支
+git checkout -b a  创建一个a分支 （切换到a分支）
+git checkout master (切换到master--主分支)  可以再建一个b分支
+	ps: 分支之间不影响
+git merge b  合并b分支（需要先切换到主分支，再在主分支合并）
+
+ps:可能会冲突   git merge --abort  放弃合并
+
+
+git与github 仓库
+（因为不可能多人用一台电脑）
+
+创建后
+可以新仓库 ，也可以提交已有仓库
+git remote add origin https://github.com/budingjun123456/imnuhbq.git
+git branch -M main
+git push -u origin main
+
+
+git push
+git pull
